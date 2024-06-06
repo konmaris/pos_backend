@@ -27,6 +27,21 @@ app.get("/", (req, res) => {
 const orders = require("./src/routes/orders/orders");
 app.use("/orders", orders);
 
+const categories = require("./src/routes/categories/categories");
+app.use("/categories", categories);
+
+const products = require("./src/routes/products/products");
+app.use("/products", products);
+
+const extras = require("./src/routes/extras/extras");
+app.use("/extras", extras);
+
+const customers = require("./src/routes/customers/customers");
+app.use("/customers", customers);
+
+const deliveryBoys = require("./src/routes/deliveryBoys/deliveryBoys");
+app.use("/deliveryBoys", deliveryBoys);
+
 app.listen(process.env.PORT || 8000, () => {
   console.log(`API running ${process.env.PORT || 8000}...`);
 });

@@ -1,30 +1,36 @@
 const mongoose = require("mongoose");
 
 const orderSchema = new mongoose.Schema({
+  source: {
+    required: false,
+    type: String,
+  },
   customer: {
-    doorbell: {
-      required: true,
-      type: String,
-    },
-    floor: {
-      required: true,
-      type: String,
-    },
-    postalCode: {
-      required: true,
-      type: String,
-    },
-    street: {
-      required: true,
-      type: String,
-    },
-    streetNumber: {
-      required: true,
-      type: String,
-    },
-    telephone: {
-      required: true,
-      type: String,
+    type: {
+      doorbell: {
+        required: false,
+        type: String,
+      },
+      floor: {
+        required: false,
+        type: String,
+      },
+      postalCode: {
+        required: false,
+        type: String,
+      },
+      street: {
+        required: false,
+        type: String,
+      },
+      streetNumber: {
+        required: false,
+        type: String,
+      },
+      telephone: {
+        required: false,
+        type: String,
+      },
     },
   },
   deliveryBoy: {
@@ -34,6 +40,10 @@ const orderSchema = new mongoose.Schema({
   deliveryTime: {
     required: false,
     type: String,
+  },
+  dailyOrderNumber: {
+    required: true,
+    type: Number,
   },
   order: {
     items: {
@@ -68,6 +78,7 @@ const orderSchema = new mongoose.Schema({
   status: {
     required: true,
     type: String,
+    enum: ["NEW_ORDER", "ASSIGNED", "DELIVERED", "CANCELLED", "COMPLETED"],
   },
   type: {
     required: true,
