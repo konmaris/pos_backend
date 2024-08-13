@@ -5,27 +5,40 @@ const customerSchema = new mongoose.Schema({
     required: false,
     type: String,
   },
-  doorbell: {
+  addresses: {
     required: false,
-    type: String,
+    type: [
+      {
+        doorbell: {
+          required: false,
+          type: String,
+        },
+        floor: {
+          required: false,
+          type: String,
+        },
+        postalCode: {
+          required: false,
+          type: String,
+        },
+        street: {
+          required: false,
+          type: String,
+        },
+        streetNumber: {
+          required: false,
+          type: String,
+        },
+        notes: {
+          required: false,
+          type: String,
+        },
+      },
+    ],
   },
-  floor: {
-    required: false,
-    type: String,
-  },
-  postalCode: {
-    required: false,
-    type: String,
-  },
-  street: {
-    required: false,
-    type: String,
-  },
-  streetNumber: {
-    required: false,
-    type: String,
-  },
+
   telephone: {
+    unique: true,
     required: false,
     type: String,
   },

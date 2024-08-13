@@ -12,6 +12,12 @@ const assignOrder = async (req, res) => {
     }
 
     order.deliveryBoy = deliveryBoyId;
+    order.status = "ASSIGNED";
+
+    if (req.body?.shiftId) {
+      order.deliveryBoyShift = req.body?.shiftId;
+    }
+
     await order.save();
 
     res.send(order);

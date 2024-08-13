@@ -27,13 +27,25 @@ const orderSchema = new mongoose.Schema({
         required: false,
         type: String,
       },
+      notes: {
+        required: false,
+        type: String,
+      },
       telephone: {
+        required: false,
+        type: String,
+      },
+      _id: {
         required: false,
         type: String,
       },
     },
   },
   deliveryBoy: {
+    required: false,
+    type: String,
+  },
+  deliveryBoyShift: {
     required: false,
     type: String,
   },
@@ -45,19 +57,26 @@ const orderSchema = new mongoose.Schema({
     required: true,
     type: Number,
   },
+  courierTip: {
+    required: false,
+    type: Number,
+  },
   order: {
     items: {
       required: true,
       type: [
         {
+          comments: { required: false, type: String },
           category: { required: true, type: String },
           id: { required: true, type: String },
           name: { required: true, type: String },
           price: { required: true, type: Number },
+          quantity: { required: true, type: Number },
           extras: [
             {
               optionName: { required: false, type: String },
               optionValue: { required: false, type: String },
+              optionLabel: { required: false, type: String },
               optionType: { required: false, type: String },
               optionPrice: { required: false, type: Number },
               optionShow: { required: false, type: Boolean },
@@ -81,6 +100,10 @@ const orderSchema = new mongoose.Schema({
     enum: ["NEW_ORDER", "ASSIGNED", "DELIVERED", "CANCELLED", "COMPLETED"],
   },
   type: {
+    required: true,
+    type: String,
+  },
+  paymentMethod: {
     required: true,
     type: String,
   },

@@ -5,6 +5,10 @@ const productExtraSchema = new mongoose.Schema({
     required: true,
     type: String,
   },
+  label: {
+    required: true,
+    type: String,
+  },
   cost: {
     required: true,
     type: Number,

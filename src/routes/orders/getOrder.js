@@ -1,8 +1,10 @@
 const express = require("express");
+const Order = require("../../models/Order");
 const router = express.Router();
 
-router.get("/:id", (req, res) => {
-  res.send("GET /orders !!!!" + req.params.id);
+router.get("/:id", async (req, res) => {
+  const order = await Order.findById(req.params.id).exec();
+  res.send(order);
 });
 
 module.exports = router;
