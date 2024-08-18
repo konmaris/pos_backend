@@ -7,7 +7,7 @@ const getCurrentOrders = async (req, res) => {
 
   let correctedDate = new Date(date.getTime() - 180 * 60 * 1000);
 
-  correctedDate.setHours(0, 0, 0, 0);
+  correctedDate.setHours(21, 0, 0, 0);
 
   console.log({ correctedDate: correctedDate.getTime() });
 
