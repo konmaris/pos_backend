@@ -7,7 +7,7 @@ const getRiderCurrentOrders = async (req, res) => {
 
   console.log(shiftId);
 
-  const orders = await Order.find({ deliveryBoy: riderId, deliveryBoyShift: shiftId }).select(["_id", "dailyOrderNumber", "customer", "orderTime", "status", "total", "paymentMethod", "order.total"]).exec();
+  const orders = await Order.find({ deliveryBoy: riderId, deliveryBoyShift: shiftId }).select(["_id", "dailyOrderNumber", "customer", "orderTime", "status", "total", "paymentMethod", "order.total", "courierTip"]).exec();
 
   res.json(orders);
 };
