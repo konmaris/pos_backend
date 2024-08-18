@@ -9,9 +9,9 @@ const getCurrentOrders = async (req, res) => {
 
   correctedDate.setHours(0, 0, 0, 0);
 
-  console.log({ correctedDate: correctedDate });
+  console.log({ correctedDate: correctedDate.getTime() });
 
-  const orders = await Order.find({ orderTime: { $gte: correctedDate } }).exec();
+  const orders = await Order.find({ orderTime: { $gte: correctedDate.getTime() } }).exec();
 
   res.send(JSON.stringify(orders));
 };
