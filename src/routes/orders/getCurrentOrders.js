@@ -9,7 +9,7 @@ const getCurrentOrders = async (req, res) => {
 
   correctedDate.setHours(21, 0, 0, 0);
 
-  console.log({ correctedDate: correctedDate.getTime() });
+  //console.log({ correctedDate: correctedDate.getTime() });
 
   const orders = await Order.find({ orderTime: { $gte: correctedDate.getTime() } }).exec();
 

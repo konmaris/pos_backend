@@ -35,7 +35,7 @@ const updateShift = async (req, res) => {
       const shiftId = rider.lastShift;
 
       const shift = rider.shifts.id(shiftId);
-      console.log(shift);
+      //console.log(shift);
 
       shift.end = Date.now().toString();
       rider.status = "inactive";

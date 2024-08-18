@@ -33,7 +33,7 @@ router.post("/", async (req, res) => {
     });
     await newCustomer.save();
   } else {
-    console.log(_customer.addresses);
+    //console.log(_customer.addresses);
 
     // check if the address exists
     const addressExists = _customer.addresses.some((address) => {
@@ -41,11 +41,11 @@ router.post("/", async (req, res) => {
     });
 
     if (!addressExists) {
-      console.log("Address does not exist");
+      //console.log("Address does not exist");
       _customer.addresses.push(customer);
       await _customer.save();
     } else {
-      console.log("Address already exists");
+      //console.log("Address already exists");
     }
   }
 
@@ -99,7 +99,7 @@ router.post("/", async (req, res) => {
   //   printTakeawayOrder(order_, client_, items, order.order.total, 1.0, 0, "192.168.1.200");
   // }
 
-  console.log(req.body);
+  //console.log(req.body);
   res.send("Order pushed!");
 });
 
