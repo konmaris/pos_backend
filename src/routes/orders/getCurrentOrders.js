@@ -4,17 +4,14 @@ const Order = require("../../models/Order");
 const getCurrentOrders = async (req, res) => {
   // find the timestamp of today 12am
   let date = new Date();
-  date.setHours(0, 0, 0, 0);
 
-  let timezoneOffset = date.getTimezoneOffset();
-  let grOffset = 180; // this is the offset for the greek timezone
+  let correctedDate = new Date(date.getTime() + 180 * 60 * 1000);
 
-  const today = new Date(date.getTime() + (grOffset + timezoneOffset) * 60 * 1000);
-  const todayTime = today.getTime();
+  correctedDate.setHours(0, 0, 0, 0);
 
-  console.log({ todayTime: todayTime });
+  console.log({ correctedDate: correctedDate });
 
-  const orders = await Order.find({ orderTime: { $gte: todayTime } }).exec();
+  const orders = await Order.find({ orderTime: { $gte: correctedDate } }).exec();
 
   res.send(JSON.stringify(orders));
 };
