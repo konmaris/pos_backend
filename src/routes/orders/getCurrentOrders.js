@@ -5,7 +5,7 @@ const getCurrentOrders = async (req, res) => {
   // find the timestamp of today 12am
   let date = new Date();
 
-  let correctedDate = new Date(date.getTime() + 180 * 60 * 1000);
+  let correctedDate = new Date(date.getTime() - 180 * 60 * 1000);
 
   correctedDate.setHours(0, 0, 0, 0);
 
