@@ -12,6 +12,8 @@ const getCurrentOrders = async (req, res) => {
   const today = new Date(date.getTime() + (grOffset + timezoneOffset) * 60 * 1000);
   const todayTime = today.getTime();
 
+  console.log({ todayTime: todayTime });
+
   const orders = await Order.find({ orderTime: { $gte: todayTime } }).exec();
 
   res.send(JSON.stringify(orders));
