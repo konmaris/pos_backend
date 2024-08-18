@@ -18,13 +18,6 @@ database.on("error", (error) => {
 
 database.once("connected", () => {
   console.log("Database Connected");
-  let date = new Date();
-  let timezoneOffset = date.getTimezoneOffset();
-  let grOffset = 180; // this is the offset for the Pacific Standard Time timezone
-  let adjustedTime = new Date(date.getTime() + (grOffset + timezoneOffset) * 60 * 1000);
-
-  console.log(date);
-  console.log(adjustedTime);
 });
 
 app.get("/", (req, res) => {
