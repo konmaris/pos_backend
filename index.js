@@ -20,6 +20,12 @@ database.once("connected", () => {
   console.log("Database Connected");
 });
 
+// this middleware will be executed for every request to the app
+app.use(function (req, res, next) {
+  res.header("Content-Type", "application/json");
+  next();
+});
+
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });

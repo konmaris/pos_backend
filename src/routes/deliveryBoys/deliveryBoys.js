@@ -10,5 +10,6 @@ router.get("/", getDeliveryBoys);
 router.get("/:id", getDeliveryBoy);
 router.put("/updateShift", updateShift);
 router.put("/updateShiftCashForChange", updateShiftCashForChange);
+router.post("/", require("./pushDeliveryBoy"));
 
 module.exports = router;

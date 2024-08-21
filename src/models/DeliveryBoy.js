@@ -12,7 +12,8 @@ const deliveryBoySchema = new mongoose.Schema({
   status: {
     required: false,
     type: String,
-    enum: ["active", "inactive", "disabled"],
+    enum: ["active", "inactive"],
+    default: "inactive",
   },
   shifts: {
     required: false,
