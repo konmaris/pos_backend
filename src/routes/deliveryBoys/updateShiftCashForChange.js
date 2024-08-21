@@ -18,6 +18,11 @@ const updateShiftCashForChange = async (req, res) => {
 
   const lastShift = rider.shifts.id(rider.lastShift);
 
+  if (lastShift.end !== null) {
+    res.status(400).send({ message: "Rider's last shift has already ended" });
+    return;
+  }
+
   lastShift.cashForChange = cashForChange;
 
   await rider.save();
