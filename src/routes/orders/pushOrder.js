@@ -100,7 +100,7 @@ router.post("/", async (req, res) => {
   // }
 
   //console.log(req.body);
-  res.send("Order pushed!");
+  res.send({ id: order._id });
 });
 
 module.exports = router;
