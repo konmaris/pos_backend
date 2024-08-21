@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 
 const deliveryBoySchema = new mongoose.Schema({
   name: {
-    required: false,
+    required: true,
     type: String,
   },
   telephone: {
-    required: false,
+    required: true,
     type: String,
   },
   status: {

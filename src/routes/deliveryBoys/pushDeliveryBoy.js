@@ -1,7 +1,7 @@
 const DeliveryBoy = require("../../models/DeliveryBoy");
 
 const pushDeliveryBoy = async (req, res) => {
-  const { name, phone, email } = req.body;
+  const { name, telephone } = req.body;
   const deliveryBoy = new DeliveryBoy({
     name,
     telephone,
