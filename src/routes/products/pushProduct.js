@@ -1,7 +1,7 @@
 const Product = require("../../models/Product");
 
 const pushProduct = async (req, res) => {
-  const { name, price, category } = req.body;
+  const { name, price, category, extras } = req.body;
   const product = new Product({
     name,
     extras,
