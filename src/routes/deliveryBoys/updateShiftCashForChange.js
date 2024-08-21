@@ -5,6 +5,8 @@ const updateShiftCashForChange = async (req, res) => {
   const { cashForChange } = req.body;
 
   const rider = await DeliveryBoy.findById(deliveryBoyId).exec();
+  const lastShift = rider.shifts.id(rider.lastShift);
+  console.log(lastShift);
 
   if (!rider) {
     res.status(404).send({ message: "Rider not found" });
@@ -15,8 +17,6 @@ const updateShiftCashForChange = async (req, res) => {
     res.status(400).send({ message: "Rider has no last shift" });
     return;
   }
-
-  const lastShift = rider.shifts.id(rider.lastShift);
 
   if (lastShift.end !== null) {
     res.status(400).send({ message: "Rider's last shift has already ended" });
