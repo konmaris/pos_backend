@@ -1,7 +1,7 @@
 const ProductExtra = require("../../models/ProductExtra");
 
 const pushExtra = async (req, res) => {
-  const { name, label } = req.body;
+  const { name, cost, type, showValue, required, options, label } = req.body;
   const extra = new ProductExtra({
     name,
     cost,
